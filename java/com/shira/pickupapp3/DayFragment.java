@@ -170,27 +170,31 @@ public class DayFragment extends Fragment implements View.OnLongClickListener, A
 
         Double longitude = null;
         Double latitude = null;
+        String institutionNamePickup = null;
 
         switch (v.getId()){
             case R.id.map_img_yaya:
                 System.out.println("DayFragment.onClick() - you clicked on map item for Yaya");
                 latitude = 31.765218;
                 longitude = 35.214817;
+                institutionNamePickup = "Yehuda Halevi School";
                 break;
             case R.id.map_img_twins:
                 System.out.println("DayFragment.onClick() - you clicked on map item for Twins");
                 latitude = 31.765613;
                 longitude = 35.217288;
+                institutionNamePickup = "Gan Zvia";
                 break;
             case R.id.map_img_lavi:
                 System.out.println("DayFragment.onClick() - you clicked on map item for Lavi");
                 latitude = 31.762596;
                 longitude = 35.209141;
+                institutionNamePickup = "Gan Shir Hadash";
                 break;
             default:
                 break;
         }
-        dataPasser.startGoogleMapIntent(latitude, longitude);
+        dataPasser.startGoogleMapIntent(latitude, longitude, institutionNamePickup);
     }
 
     /**
@@ -200,7 +204,7 @@ public class DayFragment extends Fragment implements View.OnLongClickListener, A
     public interface OnDataPass {
         public void callPerson(String nameClicked);
         public void whatsAppPerson(String nameClicked);
-        public void startGoogleMapIntent(Double lat, Double longitude);
+        public void startGoogleMapIntent(Double lat, Double longitude, String ganName);
     }
 
 

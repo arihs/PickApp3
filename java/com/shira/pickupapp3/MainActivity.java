@@ -134,10 +134,11 @@ public class MainActivity extends AppCompatActivity implements DayFragment.OnDat
      * @param longitude
      */
     @Override
-    public void startGoogleMapIntent(Double lat, Double longitude) {
+    public void startGoogleMapIntent(Double lat, Double longitude, String ganName) {
         Intent localIntent = new Intent(getApplicationContext(), MapsActivity.class);
         localIntent.putExtra("lat", lat);
         localIntent.putExtra("lng", longitude);
+        localIntent.putExtra("ganName", ganName);
         startActivity(localIntent);
         System.out.println("MainActivity.startGoogleMapIntent().... intent -> MapActivity");
 
